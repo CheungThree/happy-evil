@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/LYT_grey"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/tv_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="确定要进入吗？"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/ent"
+        android:layout_width="220dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/tv_center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="是的" />
+</RelativeLayout>

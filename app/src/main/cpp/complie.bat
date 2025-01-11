@@ -1,0 +1,1 @@
+g++ native-lib.cpp -Wall -shared -I"C:\compilter\java\17\jdk-17_windows-x64_bin\jdk-17.0.7\include" -I"C:\\compilter\\java\\17\\jdk-17_windows-x64_bin\\jdk-17.0.7\\include\\win32" -o test

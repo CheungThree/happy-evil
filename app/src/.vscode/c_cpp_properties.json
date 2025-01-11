@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "C:\\compilter\\java\\17\\jdk-17_windows-x64_bin\\jdk-17.0.7\\include",
+        "C:\\compilter\\java\\17\\jdk-17_windows-x64_bin\\jdk-17.0.7\\include\\win32"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x86"
+    }
+  ],
+  "version": 4
+}

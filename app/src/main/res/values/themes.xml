@@ -1,0 +1,9 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="buttonStyle">@style/Widget.App.Button</item>
+    </style>
+    <style name="Widget.App.Button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_states</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
