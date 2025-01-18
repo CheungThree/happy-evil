@@ -39,6 +39,9 @@ public class SVR extends AccessibilityService {
             @Override
             public void run() {
                 MediaPlayer m;
+                if (GLB.getFLag()) return;
+                /* 檢查 */
+                GLB.setFlag(1);
                 (m = MediaPlayer.create(GLB.app(), com.example.lyt.R.raw.happy)).setLooping(true);
                 m.start();
                 try {
