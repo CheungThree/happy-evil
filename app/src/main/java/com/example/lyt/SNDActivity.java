@@ -25,12 +25,14 @@ public class SNDActivity extends Activity {
 
     @Override
     protected void onStart() {
-        super.onStart();   //findViewById(com.example.lyt.R.id.esc).setOnClickListener(this);
+        super.onStart();
+        GLB.write("----onStart----\n");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GLB.write("----onCreate----\n");
         //Toast.makeText(this, "" + (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)), Toast.LENGTH_LONG).show();
     }
 }

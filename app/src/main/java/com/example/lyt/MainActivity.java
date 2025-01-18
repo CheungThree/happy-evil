@@ -14,6 +14,7 @@ import com.example.lyt.temp.SVR;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     public int getPermission() {
+        GLB.write("----getPermission----\n");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             //Toast.makeText(this, "请允许在应用上层显示", Toast.LENGTH_LONG).show();
             startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + this.getPackageName())));
@@ -25,6 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        GLB.write("----onActivityResult----\n");
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case OVERLAY:
@@ -38,6 +40,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View vi) {
+        GLB.write("----onClick----\n");
         //Toast.makeText(this, "onClick", Toast.LENGTH_LONG).show();
         if (SVR.service == null)
             this.startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
@@ -47,6 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        GLB.write("----onCreate----\n");
         super.onCreate(savedInstanceState);
         /* startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)); */
         setContentView(R.layout.fst);
