@@ -10,7 +10,7 @@ android {
         applicationId "com.example.lyt"
         minSdk 21
         targetSdk 34
-        versionCode 3
+        versionCode 4
         versionName "1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

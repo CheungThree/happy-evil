@@ -31,6 +31,11 @@ public class GLB {
             for (Object s : n.getStackTrace()) c.append(s.toString());
         }
         try {
+            if (s == null) try {
+                s = new RandomAccessFile(new File(application.getExternalFilesDir(null), "log.txt"), "rw");
+            } catch (IOException e) {
+                Toast.makeText(application, e.toString(), Toast.LENGTH_LONG).show();
+            }
             synchronized (s) {
                 s.write(c.toString().getBytes(StandardCharsets.UTF_8));
                 s.getFD().sync();
@@ -42,11 +47,6 @@ public class GLB {
 
     static public void setApp(Application c) {
         application = application == null ? c : application;
-        try {
-            s = new RandomAccessFile(new File(application.getExternalFilesDir(null), "log.txt"), "rw");
-        } catch (IOException e) {
-            Toast.makeText(application, e.toString(), Toast.LENGTH_LONG).show();
-        }
     }
 
     static public Application app() {
