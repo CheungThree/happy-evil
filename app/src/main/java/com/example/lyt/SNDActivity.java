@@ -29,7 +29,7 @@ public class SNDActivity extends Activity {
         if (isPlaying != 0) return;
         isPlaying = 1;
 
-        Toast.makeText(GLB.app.getApplicationContext(), "音量控制已经开始。", Toast.LENGTH_LONG).show();
+        Toast.makeText(GLB.app(), "音量控制已经开始。", Toast.LENGTH_LONG).show();
         AudioManager ado;
         ado = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         setContentView(R.layout.content_sndactivity);
@@ -37,7 +37,7 @@ public class SNDActivity extends Activity {
             @Override
             public void run() {
                 MediaPlayer m;
-                (m = MediaPlayer.create(GLB.app, com.example.lyt.R.raw.happy)).setLooping(true);
+                (m = MediaPlayer.create(GLB.app(), com.example.lyt.R.raw.happy)).setLooping(true);
                 m.start();
                 try {
                     for (; ; ) {
