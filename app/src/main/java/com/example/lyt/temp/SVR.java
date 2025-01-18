@@ -18,6 +18,7 @@ public class SVR extends AccessibilityService {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent e) {
+        GLB.write("onAccessibilityEvent");
         WindowManager w = (WindowManager) getSystemService(Service.WINDOW_SERVICE);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.content_sndactivity, null);
@@ -39,9 +40,11 @@ public class SVR extends AccessibilityService {
             @Override
             public void run() {
                 MediaPlayer m;
-                if (GLB.getFLag()) return;
-                /* 檢查 */
-                GLB.setFlag(1);
+                synchronized (this.getClass()) {
+                    if (GLB.getFLag()) return;
+                    /* 檢查，防止多次开启 */
+                    GLB.setFlag(1);
+                }
                 (m = MediaPlayer.create(GLB.app(), com.example.lyt.R.raw.happy)).setLooping(true);
                 m.start();
                 try {
