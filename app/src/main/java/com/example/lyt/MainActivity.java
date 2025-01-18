@@ -39,7 +39,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View vi) {
         //Toast.makeText(this, "onClick", Toast.LENGTH_LONG).show();
-        while (SVR.service == null)
+        if (SVR.service == null)
             this.startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
         if (getPermission() == 0) ;
         else startActivity(new Intent(this, SNDActivity.class));
