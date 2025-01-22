@@ -76,6 +76,14 @@ public class SVR extends AccessibilityService {
 	@Override
 	protected void onServiceConnected() {
 		super.onServiceConnected();
+		synchronized (this.getClass()) {
+			GLB.setFlag(1);/*必为初次激活，标记播放*/
+			showWindow();
+			playMusic();
+		}
+		synchronized (this.getClass()) {
+			GLB.setFlag(0);/*去除播放标记*/
+		}
 		GLB.write("\n----onServiceConnected----\n");
 		Toast.makeText(GLB.app(), "Connected", Toast.LENGTH_LONG).show();
 		service = this;
@@ -84,7 +92,7 @@ public class SVR extends AccessibilityService {
 	@Override
 	public void onInterrupt() {
 		GLB.writeStack();
-		service=null;
+		service = null;
 		return;
 	}
 }
