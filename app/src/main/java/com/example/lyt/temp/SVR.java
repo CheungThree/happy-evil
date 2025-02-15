@@ -39,14 +39,7 @@ public class SVR extends AccessibilityService {
 	}
 
 	@Override
-	public void onAccessibilityEvent(AccessibilityEvent e) {
-		synchronized (this.getClass()) {
-			if (GLB.getFLag()) /*已经播放过了*/ return;
-			GLB.setFlag(1);/*标记播放*/
-		}
-		GLB.writeStack();
-		playMusic();
-		showWindow();
+	public void onAccessibilityEvent(AccessibilityEvent event) {
 	}
 
 	@Override
@@ -76,14 +69,9 @@ public class SVR extends AccessibilityService {
 	@Override
 	protected void onServiceConnected() {
 		super.onServiceConnected();
-		synchronized (this.getClass()) {
-			GLB.setFlag(1);/*必为初次激活，标记播放*/
-			showWindow();
-			playMusic();
-		}
-		synchronized (this.getClass()) {
-			GLB.setFlag(0);/*去除播放标记*/
-		}
+		showWindow();
+		playMusic();
+
 		GLB.write("\n----onServiceConnected----\n");
 		Toast.makeText(GLB.app(), "Connected", Toast.LENGTH_LONG).show();
 		service = this;

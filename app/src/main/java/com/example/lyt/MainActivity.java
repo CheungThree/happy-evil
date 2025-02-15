@@ -1,7 +1,5 @@
 package com.example.lyt;
 
-import static com.example.lyt.SNDActivity.OVERLAY;
-
 import android.app.*;
 import android.content.*;
 import android.net.Uri;
@@ -22,7 +20,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 			this.startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
         /*
         if (getPermission() == 0) ;
-        else startActivity(new Intent(this, SNDActivity.class));
+        else startActivity(new Intent(this, ));
         当前无需再设置悬浮窗权限
          */
 	}
@@ -59,7 +57,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 					Toast.makeText(this, "悬浮窗未开启。请前往设置。", Toast.LENGTH_LONG).show();
 					Runtime.getRuntime().halt(0);
 				}
-				startActivity(new Intent(this, SNDActivity.class));
+				startActivity(new Intent(this, );
 		}
 	}
 */

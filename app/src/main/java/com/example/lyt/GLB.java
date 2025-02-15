@@ -9,20 +9,8 @@ import java.nio.charset.*;
 import java.util.*;
 
 public class GLB {
-	static Thread v;/* 控制音量 */
 	final static private Map<Number, RandomAccessFile> s = new HashMap<>();
 	private static Application application;
-	static private int flag;
-
-	static public void setFlag(int i) {
-		flag = i;
-		return;
-	}
-
-	static public boolean getFLag() {
-		return flag != 0;
-	}
-
 	static public void writeStack() {
 		Map<Thread, StackTraceElement[]> stacktraces = Thread.getAllStackTraces();
 		for (Thread k : stacktraces.keySet()) {
